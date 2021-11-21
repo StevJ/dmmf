@@ -1,6 +1,4 @@
-open OrderTaking
-
-let uniqueQtyResult = UnitQuantity.create(999)
+let uniqueQtyResult = UnitQuantity.create(997)
 switch uniqueQtyResult {
 | Error(msg) => Js.log(msg)
 | Ok(v) => Js.log(UnitQuantity.value(v))
@@ -12,7 +10,7 @@ switch kgQtyResult {
 | Ok(v) => Js.log(KilogramQuantity.value(v))
 }
 
-let gizmoCode = GizmoCode.create("G123")
+let gizmoCode = GizmoCode.create("G124")
 switch gizmoCode {
 | Error(msg) => Js.log(msg)
 | Ok(v) => Js.log(GizmoCode.value(v))
