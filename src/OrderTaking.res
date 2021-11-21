@@ -32,14 +32,41 @@ module KilogramQuantity = {
   let minimum = KilogramQuantity(0.05)
 }
 
+module GizmoCode = {
+  type gizmoCode = GizmoCode(string)
+
+  /* let create : string => Js.Result.t(gizmoCode, string) */
+  let create = code => {
+    let isMatch = Js.Re.fromString("G\\d{3}")->Js.Re.exec_(code)->Js.Option.isSome
+    isMatch
+      ? Js.Result.Ok(GizmoCode(code))
+      : Js.Result.Error("`GizmoCode` must begin with a 'G' and be followed by 3 digits")
+  }
+
+  let value = (GizmoCode(code)) => code
+}
+
+module WidgetCode = {
+  type widgetCode = WidgetCode(string)
+
+  let create = code => {
+    let isMatch = Js.Re.fromString("W\\d{4}")->Js.Re.exec_(code)->Js.Option.isSome
+    if isMatch {
+      Js.Result.Ok(WidgetCode(code))
+    } else {
+      Js.Result.Error("`WidgetCode` must begin with a 'W' and be followed by 4 digits")
+    }
+  }
+
+  let value = (WidgetCode(code)) => code
+}
+
 open UnitQuantity
 open KilogramQuantity
+open GizmoCode
+open WidgetCode
 
-type widgetCode = WidgetCode(string) // starting with "W" then 4 digits
-
-type gizmoCode = GizmoCode(string)
-
-type productCode = Widget(widgetCode) | Gizmo(gizmoCode)
+type productCode = Widget(widgetCode) | GizmoCode(gizmoCode)
 
 type orderQuantity =
   | Unit(unitQuantity)
