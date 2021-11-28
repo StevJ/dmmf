@@ -4,3 +4,4 @@ References:
 
 - <https://pragprog.com/titles/swdddf/domain-modeling-made-functional/>
 - <https://github.com/chriskrycho/dmmf>
+- <https://dusty.phillips.codes/>

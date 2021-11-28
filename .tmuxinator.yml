@@ -1,0 +1,10 @@
+name: dev
+root: ~/code/dmmf
+
+windows:
+  - dmmf:
+      layout: main-vertical
+      panes:
+        - lvim
+        - npm start
+        - ls src/*.js | entr node src/main.bs.js
