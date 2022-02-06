@@ -7,4 +7,4 @@ windows:
       panes:
         - lvim
         - npm start
-        - ls src/*.js | entr node src/main.bs.js
+        - npm run test:watch
